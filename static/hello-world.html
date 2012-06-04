@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Welcome to Evolution 3</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/docs/presentation.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/stylesheets/typography.css">
+	
+	<style>
+		sup {
+			vertical-align:super; 
+			font-size:smaller;
+		}
+		p {
+			line-height:20px;
+		}
+		code {
+			font-family:Menlo, Andale Mono, Courier New, fixed;
+			color:#2B2B2B;
+			background:#FFF4C5;
+		}
+		b {
+			font-weight:bold;
+			background:#FFF4C5;
+		}
+	</style>
+	
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+	
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+		
+		<div class="row">
+			<div class="twelve columns">
+				<div class="foundation-header">
+					<h1><a href="index.php">Evolution<sup>3</sup></a></h1>
+					<h4 class="subheader">Code less. Share more.</h4>
+				</div>
+			
+				<dl class="nice tabs mobile hide-on-phones">
+					<dd><a href="index.html">The Concept</a></dd>
+					<dd><a href="getting-started.html">Getting Started</a></dd>
+					<dd><a href="hello-world.html" class="active">Hello World!</a></dd>
+					<dd><a href="bundle.html">Creating a Bundle</a></dd>
+					<dd><a href="interaction.html">Interaction</a></dd>
+					<dd><a href="lhtml.html">LHTML</a></dd>
+					<dd><a href="extending.html">Extending</a></dd>
+					<dd><a href="sharing.html">Sharing</a></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="twelve columns">
+				<h3 id="welcometoevolution3">Hello World. Do Anything You Want.</h3>
+
+				<h4 class="subheader">Now that you've setup your first app. It's time to get familiar with where you'll be doing most of your work.</h4>
+				<hr>
+				<div class="row">
+					<div class="four columns">
+						<h5><a href="#">Understand The Portal &rarr;</a></h5>
+				
+						<p>The <code>portal</code> folder is where all the hard work happens in each app and is likely the only place you'll be writing code anytime soon.</p>
+				
+					</div>
+					<div class="four columns">
+						
+						<h5><a href="#">MVC is Easy.</a></h5>
+
+						<p>...but not necessarily what you want. There are so many cooler ways to build your app with E3 than the over-used MVC architecture.</p>
+
+					</div>
+					<div class="four columns">
+						
+						<h5><a href="#">Understand The Portal</a></h5>
+
+						<p>The <code>portal</code> folder is where all the hard work happens in each app and is likely the only place you'll be writing code anytime soon.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+	
+	
+
+
+	<!-- Included JS Files -->
+	<script src="javascripts/foundation.js"></script>
+	<script src="javascripts/app.js"></script>
+	
+</body>
+</html>

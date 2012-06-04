@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Welcome to Evolution 3</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/docs/presentation.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/stylesheets/typography.css">
+	
+	<style>
+		sup {
+			vertical-align:super; 
+			font-size:smaller;
+		}
+		p {
+			line-height:20px;
+		}
+		code {
+			font-family:Menlo, Andale Mono, Courier New, fixed;
+			color:#2B2B2B;
+			background:#FFF4C5;
+		}
+		b {
+			font-weight:bold;
+			background:#FFF4C5;
+		}
+	</style>
+	
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+	
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+		
+		<div class="row">
+			<div class="twelve columns">
+				<div class="foundation-header">
+					<h1><a href="index.php">Evolution<sup>3</sup></a></h1>
+					<h4 class="subheader">Code less. Share more.</h4>
+				</div>
+			
+				<dl class="nice tabs mobile hide-on-phones">
+					<dd><a href="index.html">The Concept</a></dd>
+					<dd><a href="getting-started.html">Getting Started</a></dd>
+					<dd><a href="hello-world.html">Hello World!</a></dd>
+					<dd><a href="bundle.html" class="active">Creating a Bundle</a></dd>
+					<dd><a href="interaction.html">Interaction</a></dd>
+					<dd><a href="lhtml.html">LHTML</a></dd>
+					<dd><a href="extending.html">Extending</a></dd>
+					<dd><a href="sharing.html">Sharing</a></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="eight columns">
+				<h3 id="welcometoevolution3">Creating a bundle.</h3>
+				
+				<hr>
+				
+				<p>Making sure you have fit the needs of every other class can be tiring, and repetitive work. Especially if every time you make an upgrade you have to go into another class and add relationships, and various other methods to meet the dependencies. Bulding your bundle can honestly be as simple as creating an empty class.</p>
+				
+				<hr>
+				
+				<h4>Building your bundle class</h4>
+				
+				<p>Creating your first bundle is as simple as declaring a class. In fact thats all your doing. For the examples on this page the bundle I'm going to build is <b>MyBundle</b> so to start I am going to create a folder inside my bundle category folder called <b>MyBundle</b>. Then I'm going to declare the class <b>Bundle</b> inside the <b>Bundles\MyBundle</b> namespace. That's it you have created a Bundle. Now lets fill it.</p>
+				
+				<em>_bundle.php</em>
+				<script type="text/javascript" src="http://snipt.net/embed/08dc76b357726d5d72eacad88a34edf9"></script>
+				
+				<hr>
+				
+				<h4>Using database models</h4>
+				
+				<p>You can make add database modeling and relationship support by extending the <b>\Bundles\SQL\SQLBundle</b> class. This will automatically read the <b>configure/sql_bundle.yaml</b> file and create the designated tables, and relationships between tables within and outside your bundle.</p>
+				
+				<em>_bundle.php <span style="color:red;">(using database models)</span></em>
+				<script type="text/javascript" src="http://snipt.net/embed/b5997dcde992539899e0a77a4905821d"></script>
+				
+				<em>configure/sql_structure.yaml</em>
+				<script type="text/javascript" src="http://snipt.net/embed/c3329d4134051def27b0874d325a5d24"></script>
+				
+				<p>To create a relationship with another bundle you can define your relationship as <b style="white-space:nowrap;">-  yourbundle.yourtable</b> this will automatically create any needed fields on the other table.</p>
+								
+				<p>To access a model of the current bundle you are going to use <b>e::MyBundle()->getRow(id);</b>. To access a list of rows you will use <b>e::MyBundle()->getRows();</b>. The singular and plural definitions are set inside the yaml configuration by the <b>singular</b> and <b>plural</b>
+					
+				<p><span style="color:red;">NOTE: </span>You cannot call a model without setting the singular and plural of a table!</p>
+					
+				<hr>
+				
+				<h4>Using Event Methods</h4>
+				
+				<p>E3 has a flexible event system. By default the first time you call a bundle the method <b>_on_first_use()</b> method will be run. This is useful if you want to scan other bundles for extensions that this bundle needs to handle. For an example please reference out SQL bundle in <b>library/SQLBundle.php</b> and <b>_bundle.php</b>. You will notice that when you extend the SQLBundle we are loading your sql structure file, and storing it inside the <b>Bundles\SQL\Bundle::$db_structure</b> array. When <b>_on_first_use()</b> is called if there were any changes to the SQL Structure files it automatically updates the database as required.</p>
+				
+				<p>To call an event you will run <b>e::events()->myEvent(arg1, arg2);</b> this will call the declared <b>_on_myEvent(arg1, arg2)</b> in EVERY bundle!</p>
+			
+			</div>
+			<div class="four columns">
+				<a href="https://github.com/EvolutionSDK/EvolutionSDK" target="_blank" class="nice large radius white button" style="display:block">Download Evolution</a>
+				<hr>
+				<h5>System Requirements</h5>
+				<table>
+					<tbody>
+						<tr>
+							<td>PHP</td>
+							<td>&gt;= 5.3</td>
+						</tr>
+						<tr>
+							<td>Apache</td>
+							<td>&gt;= 2.0</td>
+						</tr>
+						<tr>
+							<td>MySQL</td>
+							<td>&gt;= 5.1</td>
+						</tr>
+						<tr>
+							<td>Apache <code>mod_rewrite</code></td>
+							<td>~</td>
+						</tr>
+						<tr>
+							<td>PHP <code>mbstring</code></td>
+							<td>~</td>
+						</tr>
+						<tr>
+							<td>PHP <code>pcre</code></td>
+							<td>~</td>
+						</tr>
+						<tr>
+							<td>GIT</td>
+							<td>~</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+	
+	
+
+
+	<!-- Included JS Files -->
+	<script src="javascripts/foundation.js"></script>
+	<script src="javascripts/app.js"></script>
+	
+</body>
+</html>

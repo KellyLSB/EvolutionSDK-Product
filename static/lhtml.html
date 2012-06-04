@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Welcome to Evolution 3</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/docs/presentation.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/stylesheets/typography.css">
+	
+	<style>
+		sup {
+			vertical-align:super; 
+			font-size:smaller;
+		}
+		p {
+			line-height:20px;
+		}
+		code {
+			font-family:Menlo, Andale Mono, Courier New, fixed;
+			color:#2B2B2B;
+			background:#FFF4C5;
+		}
+		b {
+			font-weight:bold;
+			background:#FFF4C5;
+		}
+	</style>
+	
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+	
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+		
+		<div class="row">
+			<div class="twelve columns">
+				<div class="foundation-header">
+					<h1><a href="index.php">Evolution<sup>3</sup></a></h1>
+					<h4 class="subheader">Code less. Share more.</h4>
+				</div>
+			
+				<dl class="nice tabs mobile hide-on-phones">
+					<dd><a href="index.html">The Concept</a></dd>
+					<dd><a href="getting-started.html">Getting Started</a></dd>
+					<dd><a href="hello-world.html">Hello World!</a></dd>
+					<dd><a href="bundle.html">Creating a Bundle</a></dd>
+					<dd><a href="interaction.html">Interaction</a></dd>
+					<dd><a href="lhtml.html" class="active">LHTML</a></dd>
+					<dd><a href="extending.html">Extending</a></dd>
+					<dd><a href="sharing.html">Sharing</a></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="eight columns">
+				<h3 id="welcometoevolution3">Logical HTML.</h3>
+				
+				<hr>
+				
+				<p>Do most template parsers seem almost impossible. LHTML keeps the HTML format while allowing you to access the evolution core and bundles. Best part is if you read this and decide that you don't like it well you can easily write in your own.</p>
+				
+				<p>The default portal is <b>site</b> so were going to use that for the purposes of this documentation.</p>
+				
+				<hr>
+				
+				<h4>Enabling LHTML on your portal</h4>
+				
+				<p>Open the <b>portals/site</b> directory and open the <b>portal.yaml</b> file. Then simply enable the LHTML bundle for routing. As you can see in this example.</p>
+				<em>portal.yaml</em>
+				<script type="text/javascript" src="http://snipt.net/embed/b9f2a3ddedc634d16cb9b84df22fa1d3"></script>
+				
+				<hr>
+				
+				<h4>Using LHTML</h4>
+				
+				<p>Just write HTML. If you don't know how; then why are you here?</p>
+				<p><span style="color:red;">WARNING: </span>Our parser is strict!</p>
+				
+				<h4>Using LHTML Variables</h4>
+				
+				<p>LHTML variables are set in PHP and E3 Bundles. $_GET and $_POST variables are hooked automatically and can be accessed by using <b>{:get.var}</b> and <b>{:post.var}</b> which translates to <b>$_GET['var']</b> and <b>$_POST['var']</b> etc...</p>
+				
+				<p>You can add LHTML hooks by running <b>\Bundles\LHTML\Scope::addHook(':myHook', $var);</b> where $var can be a string, array, or even an object. If it is an array or foreachable object you can iterate through the variable by adding <b>&lt;p :load=":myHook as var"&gt;{var.name}&lt;/p&gt;</b> and the contents of the html element will be looped until the available iterations runs out.</p>
+				
+				<hr>
+				
+				<h4>Using Functions in LHTML</h4>
+				
+				<p>Along with parsing variables LHTML can also run and output methods of hooked objects. Just insert code like this <b>{:myHook.myFunction(arg1, arg2, ...)}</b> if you don't have any arguments just run <b>{:myHook.myFunction}</b>. It is also possible to stack functions by running something like this <b>{:myHook.myFunction.myFunctionsFunction(arg1).etc.etc}</b>.</p>
+				
+				<hr>
+				
+				<h4>Using LHTML Tags</h4>
+				
+				<p>LHTML tags change how the stack is outputted. They are additional html tags that are not parsed as html but rather trigger some kind of action. An example of this would be an IF/Else condition. Which you could do like this <b>&lt;:if cond=":myHook.myFunction !== FALSE"&gt;</b> and anything under the if condition will only output if the condition returns true. Available conditions are <b>==</b>, <b>===</b>, <b>!=</b>, <b>!==</b>, <b>&gt;</b>, <b>&lt;</b>, <b>&gt;=</b>, <b>&lt;=</b>.</p>
+				
+				<p>Heres an example of a if condition if $_GET['show'] == '1'</p>
+				
+				<script type="text/javascript" src="http://snipt.net/embed/22a1e9ea0cb5be034429d1de461ed8c5"></script>
+				
+				<hr>
+				
+				<h4>Creating your own LHTML tags</h4>
+				
+				<p>create a file in your bundle and namespace it to <b>Bundles\LHTML</b>. Name your class <b>Node_MyTag</b> where "MyTag" would be literally be <b>&lt;:MyTag&gt;</b>. Then just alter the how it outputs the node stack. Take a moment to review a YouTube tag to help you understand.
+					
+				<script type="text/javascript" src="http://snipt.net/embed/0e06a40783be45a33ee45b68b1d1a8fd"></script>
+				
+			</div>
+			<div class="four columns">
+				<a href="https://github.com/EvolutionSDK/EvolutionSDK" target="_blank" class="nice large radius white button" style="display:block">Download Evolution</a>
+				<hr>
+				<h5>System Requirements</h5>
+				<table>
+					<tbody>
+						<tr>
+							<td>PHP</td>
+							<td>&gt;= 5.3</td>
+						</tr>
+						<tr>
+							<td>Apache</td>
+							<td>&gt;= 2.0</td>
+						</tr>
+						<tr>
+							<td>MySQL</td>
+							<td>&gt;= 5.1</td>
+						</tr>
+						<tr>
+							<td>Apache <code>mod_rewrite</code></td>
+							<td>~</td>
+						</tr>
+						<tr>
+							<td>PHP <code>mbstring</code></td>
+							<td>~</td>
+						</tr>
+						<tr>
+							<td>PHP <code>pcre</code></td>
+							<td>~</td>
+						</tr>
+						<tr>
+							<td>GIT</td>
+							<td>~</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+	
+	
+
+
+	<!-- Included JS Files -->
+	<script src="javascripts/foundation.js"></script>
+	<script src="javascripts/app.js"></script>
+	
+</body>
+</html>

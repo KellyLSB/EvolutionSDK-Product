@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Welcome to Evolution 3</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/docs/presentation.css">
+	<link rel="stylesheet" href="http://foundation.zurb.com/stylesheets/typography.css">
+	
+	<style>
+		sup {
+			vertical-align:super; 
+			font-size:smaller;
+		}
+		p {
+			line-height:20px;
+		}
+		code {
+			font-family:Menlo, Andale Mono, Courier New, fixed;
+			color:#2B2B2B;
+			background:#FFF4C5;
+		}
+		b {
+			font-weight:bold;
+			background:#FFF4C5;
+		}
+	</style>
+	
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+	
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+		
+		<div class="row">
+			<div class="twelve columns">
+				<div class="foundation-header">
+					<h1><a href="index.php">Evolution<sup>3</sup></a></h1>
+					<h4 class="subheader">Code less. Share more.</h4>
+				</div>
+			
+				<dl class="nice tabs mobile hide-on-phones">
+					<dd><a href="index.html" class="active">The Concept</a></dd>
+					<dd><a href="getting-started.html">Getting Started</a></dd>
+					<dd><a href="hello-world.html">Hello World!</a></dd>
+					<dd><a href="bundle.html">Creating a Bundle</a></dd>
+					<dd><a href="interaction.html">Interaction</a></dd>
+					<dd><a href="lhtml.html">LHTML</a></dd>
+					<dd><a href="extending.html">Extending</a></dd>
+					<dd><a href="sharing.html">Sharing</a></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="eight columns">
+				<h3 id="welcometoevolution3">Your Code Is Your Product</h3>
+
+				<h4 class="subheader">I want the code you're writing right now. I want to plug that functionality into my application and see the engine rev to life. Welcome to E<sup>3</sup> &mdash; the chassis on which a beautiful product can be built out of many independently developed and tested pieces.</h4>
+<hr>
+				
+				<h4>The Current Problems with Sharing Code</h4>
+				
+				<p>Almost all open source or 3rd party software has one big flaw. <strong>It doesn&#8217;t integrate well.</strong> Like the time you downloaded that class to add Paypal functionality but then spent a day setting up and testing the callback urls and trying to figure out how to deal with e-checks.</p>
+				
+				<div class="row">
+					<div class="six columns">
+						<h5>The Integration Problem</h5>
+						<p>Trying to connect two groups of functionality from different developers is hazardous and time consuming. Often times we revert to writing our own code
+							from scratch because the cost of integration is to high.</p>
+						<h5>The Fragmentation Problem</h5>
+						<p>When you start connecting all these different open source pieces your software immediately becomes fragmented and difficult to debug. You end up spending too much time frustrated and not enough time developing awesome products.</p>
+						
+					</div>
+					<div class="six columns">
+						<h5>The Debugging Problem</h5>
+						<p>Many 3rd party classes or software pieces are loaded with bugs that we don't know about. These bugs come out into our applications and we lose sleep rewriting the code we're trying to implement.</p>
+						<h5>The Security Problem</h5>
+						<p>One of the most dangerous issues developers face in pulling in 3rd party functionality into a web application is the security risk. There is no way to be sure the code you're using is secure. Quality control is almost non-existent in code sharing, even when you're paying for it.</p>
+
+					</div>
+				</div>
+				<p>In addition to the problems above, there are issues with <b>code licensing</b>, <b>updating</b>, <b>contributing</b>, and <b>extending</b>. <strong>So. What do we do to change all this?</strong></p>
+				<hr>
+				
+				<h4>E<sup>3</sup> &rarr; Assisting Integration</h4>
+			
+						<p>E3 packages functionality into bundles. A bundle is merely a wrapper for your code, a predefined structure to drop your code into so that it will easily integrate with other code. This means <b>you don't have to rewrite your code!</b></p>
+						<h5>Your Code</h5>
+						<script type="text/javascript" src="http://snipt.net/embed/d970a3efeb560648ea879b8639c70666"></script>
+						
+						<h5>Adding Your Code as a Bundle</h5>
+						<script type="text/javascript" src="http://snipt.net/embed/5e9cf9cab9229d65562042967a403257"></script>
+						
+						<h5>Using The Code</h5>
+						<script type="text/javascript" src="http://snipt.net/embed/1148b082c87927b6cd0507ce8493136f"></script>
+						<hr>
+						<h4>E<sup>3</sup> &rarr; Seamless InterConnection</h4>
+						<p>Few things feel quite as good as dropping in a bundle of code and seeing it work perfectly with all the other functionality you have.</p>
+						<p>E3 takes this seriously. Every bundle is designed to never conflict with any other code, and to integrate itself with your application effortlessly.</p>
+						<h5>Event Handling. A Beautiful Example: <code>Paypal IPN</code></h5>
+						<p>Paypal has a callback system that sends important data to your application to confirm payment. This callback system has hundreds of options and details that take quite a while to fully understand. You shouldn't have to figure out how to get this information back into your application. All you should have to do is add the bundle, and work with the bundle results.</p>
+						<p>Bundles can easily add URLs to the routing system. Therefore the <code>paypal</code> bundle you've installed already has a special callback url designated <code>/--paypal/ipn</code></p>
+						<p>Using events, when Paypal send the IPN response, the <code>paypal</code> bundle emits an event called <code>paypalResponse</code>. You can handle this event by merely adding the method <code>_on_paypalResponse($data){}</code> to a controller or bundle you're writing. You could then, for example, send out an email to your client confirming payment has been received.</p>
+						<p>Let's say you were writing an <code>online_store</code> bundle to sell or share with other developers and you wanted to build in <code>paypal</code> functionality. All you would need to do is handle the <code>paypalResponse</code> event in your bundle and you're ready to offer a fully integrated piece of functionality to the world.</p>
+						
+		
+			
+			</div>
+			<div class="four columns">
+				<a href="https://github.com/EvolutionSDK/EvolutionSDK" target="_blank" class="nice large radius white button" style="display:block">Download Evolution</a>
+				<hr>
+				<blockquote><p>The best way to make sure you're writing great code is to share or sell each piece of functionality you create, independently of the product you're developing.<br><strong>David Boskovic, Lead Engineer</strong></p></blockquote>
+				<hr>
+				<blockquote><p>Always look for and accept criticism. It will help you grow, and become better at what you do.<br><strong>Kelly Becker, E3 Team Member</strong></p></blockquote>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+	
+	
+
+
+	<!-- Included JS Files -->
+	<script src="javascripts/foundation.js"></script>
+	<script src="javascripts/app.js"></script>
+	
+</body>
+</html>

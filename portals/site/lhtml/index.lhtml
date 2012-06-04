@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Welcome to Evolution 3</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="/static/stylesheets/foundation.css" />
+	<link rel="stylesheet" href="/static/stylesheets/app.css" />
+	<link rel="stylesheet" href="http://foundation.zurb.com/docs/presentation.css" />
+	<link rel="stylesheet" href="http://foundation.zurb.com/stylesheets/typography.css" />
+	
+	<style>
+		sup {
+			vertical-align:super; 
+			font-size:smaller;
+		}
+		p {
+			line-height:20px;
+		}
+		code {
+			font-family:Menlo, Andale Mono, Courier New, fixed;
+			color:#2B2B2B;
+			background:#FFF4C5;
+		}
+		b {
+			font-weight:bold;
+			background:#FFF4C5;
+		}
+	</style>
+	
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="/static/stylesheets/ie.css" />
+	<![endif]-->
+
+	
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+		
+		<div class="row">
+			<div class="twelve columns">
+				<div style="float:right;font-size:14px;margin-top:50px">
+					<:github repo="EvolutionSDK/EvolutionSDK" branch="master">
+						Latest stable version <strong>({:gh.id})</strong> as of <strong>{:gh.committed_date|date(m/d/Y h:ia T)}</strong><br />
+					</:github>
+					<:github repo="EvolutionSDK/EvolutionSDK" branch="dev">
+						Latest development version <strong>({:gh.id})</strong> as of <strong>{:gh.committed_date|date(m/d/Y h:ia T)}</strong><br />
+					</:github>
+				</div>
+
+				<div class="foundation-header">
+					<h1><a href="index.php">Evolution<sup>3</sup></a></h1>
+					<h4 class="subheader">Code less. Share more.</h4>
+				</div>
+			
+				<!--#<dl class="nice tabs mobile hide-on-phones">
+					<dd><a href="index.html" class="active">Download Stable</a></dd>
+					<dd><a href="getting-started.html">Download Dev</a></dd>
+				</dl>-->
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="eight columns">
+				<h3 id="welcometoevolution3">Your Code Is Your Product</h3>
+
+				<h4 class="subheader">I want the code you're writing right now. I want to plug that functionality into my application and see the engine rev to life. Welcome to E<sup>3</sup> &mdash; the chassis on which a beautiful product can be built out of many independently developed and tested pieces.</h4>
+				
+				<hr />
+				
+				<h4>The Current Problems with Sharing Code</h4>
+				
+				<p>Almost all open source or 3rd party software has one big flaw. <strong>It doesn&#8217;t integrate well.</strong> Like the time you downloaded that class to add Paypal functionality but then spent a day setting up and testing the callback urls and trying to figure out how to deal with e-checks.</p>
+				
+				<div class="row">
+					<div class="six columns">
+						<h5>The Integration Problem</h5>
+						<p>Trying to connect two groups of functionality from different developers is hazardous and time consuming. Often times we revert to writing our own code
+							from scratch because the cost of integration is to high.</p>
+						<h5>The Fragmentation Problem</h5>
+						<p>When you start connecting all these different open source pieces your software immediately becomes fragmented and difficult to debug. You end up spending too much time frustrated and not enough time developing awesome products.</p>
+						
+					</div>
+					<div class="six columns">
+						<h5>The Debugging Problem</h5>
+						<p>Many 3rd party classes or software pieces are loaded with bugs that we don't know about. These bugs come out into our applications and we lose sleep rewriting the code we're trying to implement.</p>
+						<h5>The Security Problem</h5>
+						<p>One of the most dangerous issues developers face in pulling in 3rd party functionality into a web application is the security risk. There is no way to be sure the code you're using is secure. Quality control is almost non-existent in code sharing, even when you're paying for it.</p>
+
+					</div>
+				</div>
+
+				<p>In addition to the problems above, there are issues with <b>code licensing</b>, <b>updating</b>, <b>contributing</b>, and <b>extending</b>. <strong>So. What do we do to change all this?</strong></p>
+
+			</div>
+
+			<div class="four columns">
+				<a href="http://github.com/EvolutionSDK/EvolutionSDK" class="nice large radius white button" style="display:block">View on GitHub</a>
+				<br />
+				<a href="/download/master" class="nice large radius white button" style="display:block">Download Latest Stable</a>
+				<br />
+				<a href="/download/dev" class="nice large radius white button" style="display:block">Download Latest Development</a>
+				
+				<hr />
+
+				<!--#blockquote><p>The best way to make sure you're writing great code is to share or sell each piece of functionality you create, independently of the product you're developing.<br />><strong>David Boskovic, Lead Engineer</strong></p></blockquote>
+
+				<hr />
+				
+				<blockquote><p>Always look for and accept criticism. It will help you grow, and become better at what you do.<br />><strong>Kelly Becker, E3 Team Member</strong></p></blockquote-->
+			</div>
+
+		</div>
+		
+	</div>
+	<!-- container -->
+	
+	
+
+
+	<!-- Included JS Files -->
+	<script src="/static/javascripts/foundation.js"></script>
+	<script src="/static/javascripts/app.js"></script>
+	
+</body>
+</html>
